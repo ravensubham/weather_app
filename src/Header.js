@@ -1,7 +1,5 @@
 import React, {useState } from 'react'
 import DailyForecast from './DailyForecast';
-
-
 import './App.css'
 
 
@@ -29,8 +27,10 @@ function Header() {
             setCity(resJson);
            
         }
-
         
+      
+
+
       
     
     
@@ -43,11 +43,15 @@ function Header() {
         }
 
     }
-
+    //current date and time
+   const currentDate = new Date().toDateString();
+  const currentTime = new Date().getHours()+':'+new Date().getMinutes();
+  const hour = new Date().getHours();
+    
     
   return (
     <>
-  <DailyForecast/>
+  <DailyForecast  />
 
     <div className='body'>
 
@@ -56,10 +60,10 @@ function Header() {
 
             <div className="date-container">
                 <div className="time" >
-                    12:30 <span className="am-pm">PM</span>
+                  {currentTime} <span className="am-pm">{hour>= 12?'PM':'AM'}</span>
                 </div>
                 <div className="date" >
-                    Monday, 25 May
+                {currentDate}
                 </div>
 </div>
 
@@ -71,36 +75,36 @@ function Header() {
     
     <div>
 <div className="temp" >
-                    <h3>Temp:</h3><span>{city.main.temp}</span>
+                    <h3>Temp:</h3><span>{city.main.temp}&#176; C</span>
                 </div>
 
-<div className="others" id="current-weather-items">
+<div className="others">
 
 <div className="weather-item">
 
-<div>Maxm Temp</div> <div>{city.main.temp_max}</div>
+<div>Maxm Temp</div> <div>{city.main.temp_max}&#176; C</div>
 
 </div>
 
 <div className="weather-item">
 
-<div>Minm Temp</div> <div>{city.main.temp_min}</div>
+<div>Minm Temp</div> <div>{city.main.temp_min}&#176; C</div>
 
 </div>
 
 <div className="weather-item">
 
-<div>Humidity</div> <div>{city.main.humidity}</div>
+<div>Humidity</div> <div>{city.main.humidity}%</div>
 
 </div>
 
 <div className="weather-item"> 
-<div>Pressure</div> <div>{city.main.pressure}</div>
+<div>Pressure</div> <div>{city.main.pressure}mb</div>
 
 </div>
 
 <div className="weather-item"> 
-<div>Wind Speed</div> <div>{city.wind.speed}</div>
+<div>Wind Speed</div> <div>{city.wind.speed}km/hr</div>
 
 </div>
 
@@ -116,7 +120,7 @@ function Header() {
     />
     </div>
              <div className="time-zone" >Asia/{search.cities}</div>
-               <button className='getwheather' onClick={(e) => fetchApi(e)}>Submit</button>
+               <button className='getwheather'  onClick={(e) => fetchApi(e)}>Submit</button>
                 <div  className="country">IN</div>
             </div>
 
@@ -124,10 +128,10 @@ function Header() {
 
         </div>
      
-
+       
         </div>
         </>
-  )
+  )  
 }
 
 export default Header

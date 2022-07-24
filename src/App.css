@@ -5,7 +5,8 @@
 }
 
 body{
-  background-color: #a5bbdd;
+
+  background: url("/public/image/img1.png");
   background-repeat: no-repeat;
   background-size:cover;
   overflow:hidden;
@@ -98,11 +99,12 @@ body{
     z-index: 3 !important;
     opacity: 0.1;
     }
+  /* button */
 .getwheather{
   margin-left: 10px;
   padding: 8px;
   font-size: 1.3rem;
-  border: none;
+  border: 2px solid #eee;
   border-radius: 20px;
   border: 2px solid black;
   background: rgb(2, 57, 88, 0.8);
@@ -119,19 +121,29 @@ body{
     display: flex;
     flex-direction: column;
     background: rgba(24,24,27, 0.6);
-    padding:20px;
+    padding:30px;
     border-radius: 10px;
     margin: 30px 0;
     border: 1px solid #eee;
 }
 
 .current-info .others .weather-item{
+  
     display: flex;
+    
     justify-content: space-between;
 }
-
+.weather-item{
+  font-size: 20px;
+}
+.temp{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .future-forecast{
-  background: rgba(24,24,27,0.8);
+  
+  background: rgba(24,24,27,0.4);
   padding: 25px;
   position: fixed;
   bottom: 0;
@@ -141,7 +153,7 @@ body{
   align-items: center;
   justify-content: center;
   overflow-y: hidden;
-  transform: translate3d(0, 0, 0);
+  
 }
 
 .future-forecast .today{
@@ -204,4 +216,9 @@ body{
   transform: rotate(360deg);
   }
   }
-
+  .weather {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-gap: 16px;
+    margin: 16px;
+  }

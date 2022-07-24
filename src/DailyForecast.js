@@ -1,8 +1,9 @@
 import React from 'react'
-import './App.css'
-function DailyForecast() {
-  return (
+
+export default function DailyForecast(searches) {
   
+  
+  return (
     <div className="future-forecast">
     <div className="today" id="current-temp">
        
@@ -51,8 +52,7 @@ function DailyForecast() {
      <div className = "wave3"></div>
 </div>
 
+  
   )
 }
-
-export default DailyForecast
 
